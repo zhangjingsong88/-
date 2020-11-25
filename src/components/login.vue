@@ -48,29 +48,29 @@ export default {
   methods: {
     login() {
       console.log(this.keys, 11111);
-      //调用登录接口，解决跨域问题
-      // this.$http({
-      //   // url:'http://localhost:3000/login',
-      //   url: "/user/login",
-      //   method: "post",
-      //   data: this.keys
-      // })
-      //   .then(res => {
-      //     console.log(res, "res");
-      //     if (res.data.code == 0) {
-      //       this.$message({
-      //         message: res.data.info,
-      //         type: "success"
-      //       });
-      //       this.$router.push("/index");
-      //     } else {
-      //       this.$message({
-      //         message: res.data.info,
-      //         type: "error"
-      //       });
-      //     }
-      //   })
-      //   .catch(err => {});
+      // 调用登录接口，解决跨域问题
+      this.$http({
+        // url:'http://localhost:3000/login',
+        url: "/user/login",
+        method: "post",
+        // data: this.keys
+      })
+        .then(res => {
+          console.log(res, "res");
+          // if (res.data.code == 0) {
+          //   this.$message({
+          //     message: res.data.info,
+          //     type: "success"
+          //   });
+            this.$router.push("/index");
+          // } else {
+          //   this.$message({
+          //     message: res.data.info,
+          //     type: "error"
+          //   });
+          // }
+        })
+        .catch(err => {});
       this.$router.push("/index");
     }
   }

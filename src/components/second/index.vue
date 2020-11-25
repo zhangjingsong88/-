@@ -49,7 +49,7 @@ export default {
   },
   mounted() {
     this.$http({
-      url: "/api/findDevice"
+      url: "/book/find_id"
     })
       .then(res => {
         // console.log(res, "查询图书成功2222");
@@ -71,7 +71,7 @@ export default {
     //模糊查询
     dimFind() {
       this.$http({
-        url: "/api/findDevice"
+        url: "/book/find_name"
       })
         .then(res => {
           console.log(res, "查询图书成功");
@@ -108,24 +108,24 @@ export default {
     //根据页数判断数据
     handleCurrentChange(val) {
       console.log(`当前页: ${val}`);
-      this.$http({
-        url: "/api/findDevice"
-      })
-        .then(res => {
-          // console.log(res, "查询图书成功2222");
-          this.messageList = [];
-          res.data.data.map((item, index) => {
-            if (index >= 0 + 5 * (val - 1) && index < 5 + 5 * (val - 1)) {
-              //得到数据库里的数据
-              this.messageList.push(item);
-            }
-          });
-          //总条数
-          this.count = res.data.data.length;
-        })
-        .catch(err => {
-          console.log(err, "查询图书失败2222");
-        });
+      // this.$http({
+      //   url: "/api/findDevice"
+      // })
+      //   .then(res => {
+      //     // console.log(res, "查询图书成功2222");
+      //     this.messageList = [];
+      //     res.data.data.map((item, index) => {
+      //       if (index >= 0 + 5 * (val - 1) && index < 5 + 5 * (val - 1)) {
+      //         //得到数据库里的数据
+      //         this.messageList.push(item);
+      //       }
+      //     });
+      //     //总条数
+      //     this.count = res.data.data.length;
+      //   })
+      //   .catch(err => {
+      //     console.log(err, "查询图书失败2222");
+      //   });
     },
     //跳转到创建页面，实现创建功能
     create() {

@@ -45,7 +45,7 @@ export default {
   methods: {
     onSubmit() {
       this.$http({
-        url: "/book/add_book",
+        url: "http://localhost:8080/book/add_book",
         params: {
           bookname: this.form.bookname,
           auther: this.form.auther,
