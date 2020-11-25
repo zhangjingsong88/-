@@ -10,10 +10,12 @@
     <div class="block">
       <el-table :data="messageList">
         <el-table-column type="selection" width="55"></el-table-column>
-        <el-table-column prop="number" label="图书编号"></el-table-column>
-        <el-table-column prop="name" label="书名"></el-table-column>
-        <el-table-column prop="writer" label="作者"></el-table-column>
-        <el-table-column prop="price" label="价格"></el-table-column>
+        <el-table-column prop="id" label="图书编号"></el-table-column>
+        <el-table-column prop="bookname" label="书名"></el-table-column>
+        <el-table-column prop="author" label="作者"></el-table-column>
+        <el-table-column prop="type" label="类型"></el-table-column>
+        <el-table-column prop="publisher" label="出版商"></el-table-column>
+        <el-table-column prop="stock" label="库存"></el-table-column>
         <el-table-column prop label="操作" width="200px">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
@@ -142,7 +144,7 @@ export default {
     //删除
     handleDelete(index, row) {
       this.$http({
-        url: "/api/delDevice",
+        url: "/book/delbook",
         params: {
           number: this.messageList[index].number
         }
